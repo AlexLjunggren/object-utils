@@ -1,6 +1,7 @@
 package io.ljunggren.objectUtils;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
@@ -21,6 +22,10 @@ public class ObjectUtilsTest {
         private boolean active;
     }
     
+    @Test
+    public void instantiationTest() {
+        assertNotNull(new ObjectUtils());
+    }
     
     @Test
     public void trimPropertiesTest() throws IllegalArgumentException, IllegalAccessException  {
@@ -40,6 +45,18 @@ public class ObjectUtilsTest {
     public void trimPropertiesNullTest() throws IllegalArgumentException, IllegalAccessException {
         Object object = ObjectUtils.trimProperties(null);
         assertNull(object);
+    }
+    
+    @Data
+    private static class FinalUser {
+        private final String name = "  Alex  ";
+    }
+    
+    @Test
+    public void trimPropertiesFinalTest() throws IllegalArgumentException, IllegalAccessException {
+        FinalUser user = new FinalUser();
+        user = ObjectUtils.trimProperties(user);
+        assertEquals("  Alex  ", user.getName());
     }
     
 }
