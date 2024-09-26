@@ -1,4 +1,4 @@
-package io.ljunggren.objectUtils;
+package io.ljunggren.object.utils;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

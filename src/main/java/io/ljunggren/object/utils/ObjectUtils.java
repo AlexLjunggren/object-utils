@@ -1,4 +1,4 @@
-package io.ljunggren.objectUtils;
+package io.ljunggren.object.utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
